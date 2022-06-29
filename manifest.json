@@ -1,0 +1,10 @@
+{
+  "name": "NCR Design System Timesheet Extension",
+  "description": "",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "dist/index.html"
+  },
+  "permissions": ["activeTab", "scripting"]
+}
