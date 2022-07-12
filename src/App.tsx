@@ -20,6 +20,9 @@ function App() {
       target: { tabId: tab.id },
       args: [dsHours, outsideHours, dayToggle],
       func: async (dsHoursStr, outsideHoursStr, dayToggle) => {
+        if (!dsHoursStr || Array.isArray(dsHoursStr)) return;
+        if (!outsideHoursStr || Array.isArray(outsideHoursStr)) return;
+
         const dsHours = parseInt(dsHoursStr);
         const outsideHours = parseInt(outsideHoursStr);
         const totalHours = dsHours + outsideHours;
@@ -185,7 +188,7 @@ function App() {
             Object.getOwnPropertyDescriptor(
               window.HTMLInputElement.prototype,
               "value"
-            ).set.call(field, aHours);
+            )?.set?.call(field, aHours);
             // This will trigger a new render wor the component
             field.dispatchEvent(new Event("change", { bubbles: true }));
           }
